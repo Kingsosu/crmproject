@@ -29,6 +29,21 @@ main{
     width: 500px; 
 }
 
+@media screen and (max-width:600px) {
+  html{
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (max-width:769px) {
+  .form-layout{
+    width: 100%;
+  }
+
+}
+
+
 .message-text{
     color: white;
 }
@@ -48,9 +63,6 @@ td{
     justify-content: center;
     height: 80vh;
 }
-
-
-
 
 
 /**

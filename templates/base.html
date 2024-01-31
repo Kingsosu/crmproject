@@ -36,17 +36,17 @@
 
             {% for message in messages %}
 
-            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
 
-            <p class="alert alert-success float-center text-center message-text" id="message-time">
+                <p class="alert alert-success float-center text-center message-text" id="message-time">
 
-                <i class="fa fa-check" aria-hidden="true"></i> &nbsp;
+                    <i class="fa fa-check" aria-hidden="true"></i> &nbsp;
 
-                {{message}}
+                    {{message}}
 
-            </p>
+                </p>
 
-            {% endif %}
+                {% endif %}
 
             {% endfor %}
 

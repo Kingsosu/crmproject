@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% block title %}KSCODE{% endblock %}
+
+
+{% block content %}
+
+<br />
+<br />
+
+<div class="text-center">
+  <h3>KSCODE ... Management at its's finest!</h3>
+  <br />
+
+  <h5>Keep track of your records effectively</h5>
+  <hr />
+  <br />
+
+  <a href="{% url 'account:register' %}" class="btn btn-primary" type="button">Create your account &nbsp;
+    <i class="fa fa-user-plus" aria-hidden="true"></i>
+  </a>
+</div>
+{% endblock %}

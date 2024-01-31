@@ -1,0 +1,157 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.navbar{
+    width: 100%;
+    padding-left: 30px;
+}
+
+main{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.container{
+    width: 100%;
+}
+
+.form-layout{
+    border-radius: 15px;
+    width: 500px; 
+}
+
+.message-text{
+    color: white;
+}
+
+td{
+    font-size: .75rem;
+    vertical-align: middle;
+}
+#view{
+    text-align: center;
+}
+
+
+.formContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+
+
+
+
+/**
+  * infinity-path
+  *
+  * @author jh3y
+*/
+.infinity-path {
+    --size: 120;
+    --speed: 0.65;
+    height: calc(var(--size) * 1px);
+    position: relative;
+    width: calc(var(--size) * 1px);
+  
+    & > div {
+      height: calc(var(--size) * 1px);
+      width: calc(var(--size) * 1px);
+      border-radius: 100%;
+      border: calc(var(--size) / 4 * 1px) solid rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation-duration: calc(var(--speed) * 1s);
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-name: infinity-spin;
+      transform: translate(calc(var(--translate) * 1%), 0) translate(calc(var(--translate-2) * 1px), 0);
+  
+      &:before {
+        content: '';
+        height: calc(var(--size) / 4 * 1px);
+        width: calc(var(--size) / 4 * 1px);
+        border-radius: 100%;
+        background: rgb(44,62,80);
+        position: absolute;
+        top: 50%;
+        animation: infinity-vanish calc(var(--speed) * 2s) infinite reverse steps(1);
+        transform: translate(calc(var(--translate-2) * 2px), calc(var(--translate) * 1%));
+      }
+    }
+  
+    & > div:nth-of-type(1) {
+      --translate: -50;
+      --translate-2: calc(var(--size) / 8);
+      &:before {
+        right: 0;
+      }
+    }
+  
+    & > div:nth-of-type(2) {
+      --translate: 50;
+      --translate-2: calc(var(--size) / 8 * -1);
+      animation-delay: calc(var(--speed) * 1s);
+      animation-direction: reverse;
+  
+      &:before {
+        left: 0;
+        transform: translate(calc(var(--size) / 4 * -1px), -50%);
+        animation-direction: normal;
+      }
+    }
+  }
+  
+  @keyframes infinity-vanish {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes infinity-spin {
+    from {
+      transform: translate(calc(var(--translate) * 1%), 0) translate(calc(var(--translate-2) * 1px), 0) rotate(0deg);
+    }
+    to {
+      transform: translate(calc(var(--translate) * 1%), 0) translate(calc(var(--translate-2) * 1px), 0) rotate(360deg);
+    }
+  }
+  
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+  
+  #preloader-spin{
+      width: 100vw;
+      height: 100vh;
+      /*transition: all .5s ease-out; */
+      opacity: 0;
+      /* background-color: #0d6efd; */
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+      z-index: 9999;
+      position: fixed;
+      visibility: hidden;
+      top: 0;
+      left: 0;
+  }
+  #preloader-spin.show {
+      opacity: 1;
+      visibility: visible;
+  }

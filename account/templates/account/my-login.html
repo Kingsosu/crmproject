@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="container bg-light shadow-md p-5 form-layout">
+
+    <h3> Login to your account </h3>
+    <hr>
+    <br>
+
+    <form method="post" class="form-signin" autocomplete="off">
+
+        {% csrf_token %}
+
+        <input type="email" name="email" id="inputEmail" class="form-control mb-3" placeholder="Email address"
+            required autofocus>
+
+        <input type="password" name="password" id="inputPassword" class="form-control mb-3"
+            placeholder="Password" required>
+
+        {% for field in form %}
+            {% for error in field.errors %}
+              <div class="alert alert-warning alert-common-message" role="alert">
+                {{error}}
+              </div>
+            {% endfor %}
+        {% endfor %}
+
+        {% if form.non_field_errors %}
+            <div class="alert alert-warning alert-common-message" role="alert">
+              {{ form.non_field_errors }}
+            </div>
+          
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary w-100 btn-lg btn-block p-2"> 
+            Login &nbsp; <i class="fa fa-key"></i>
+        </button>
+
+
+    </form>
+
+    <br>
+
+    <div class="text-center">
+        <a href="{% url 'reset_password' %}"> Forgot Password </a>
+    </div>
+
+    <div class="text-center">
+        <p>Dont't have an account </p> <a href="{% url 'account:register' %}"> Register </a>
+    </div>
+
+</div>
+
+<br>
+
+{% endblock %}

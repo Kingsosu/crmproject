@@ -1,0 +1,91 @@
+<nav class="navbar shadow-sm navbar-dark bg-primary justify-content-center">
+    <div class="container-fluid">
+        <a class="navbar-brand main-heading" href="{% url 'home' %}">
+            &nbsp; KSCODE
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+    
+            <ul class="navbar-nav mr-auto">
+    
+                &nbsp; &nbsp; &nbsp;
+    
+                {% if user.is_authenticated %}
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dashboard' %}">
+                        Dashboard &nbsp; <i class="fa fa-home" aria-hidden="true"></i>
+                    </a>
+                </li>
+        
+                &nbsp; &nbsp; &nbsp;
+
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'password_change' %}">
+                        Change Password &nbsp; <i class="fas fa-key"></i>
+
+                    </a>
+                </li>
+
+                &nbsp; &nbsp; &nbsp;
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#signOutModal">
+                        Sign out &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </li>
+    
+            </ul>
+    
+            {% else %}
+    
+            <li class="nav-item">
+    
+                <a class="nav-link" href="{% url 'account:register' %}"> Register </a>
+    
+            </li>
+    
+    
+            &nbsp; &nbsp; &nbsp;
+    
+    
+            <li class="nav-item">
+    
+                <a class="nav-link" href="{% url 'account:my_login' %}">Login</a>
+    
+            </li>
+    
+    
+            {% endif %}
+    
+    
+        </div>
+    </div>
+</nav>
+
+<!-- Add this modal structure at the end of your template, before </body> -->
+<div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="signOutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signOutModalLabel">Confirm Sign Out</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="p-4">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to sign out?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <a href="{% url 'account:user_logout' %}" class="btn btn-primary">Sign Out</a>
+            </div>
+        </div>
+    </div>
+</div>
